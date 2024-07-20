@@ -1,5 +1,6 @@
 package APNADSA.BinaryTreeS;
 
+import java.util.*;
 
 /*
  * Pre Order Binary Tree
@@ -86,17 +87,54 @@ public class BinaryTree {
         PostOrder_Traversal(root.right);
         System.out.print(root.data + " ");
     }
+    /* Level Order Traversal (BFS)
+     * check the given  tree is null or not if it is then simply return.
+     * Step 1 --> Create a queue data structure with type Node 
+     * Step 2 --> run while loop till queue is empty
+     * Step 3 --> Take a node variable which is CurrNode
+     * Step 4 --> check  the currNode 
+     *             --> if it is null then print next line 
+     *             --> if it is not null then print data and add its next elements
+     */
+    public void LevelOrder_Traversal(Node root){
+        if(root == null){
+            return;
+        }
+        Queue<Node> q = new LinkedList<>();
+        q.add(root);
+        q.add(null);
+        while(!q.isEmpty()){
+            Node currNode = q.remove();
+            if(currNode == null){
+                System.out.println();
+                if(q.isEmpty()){
+                    break;
+                }else{
+                    q.add(null);
+                }
+            }else{
+                System.out.print(currNode.data +" ");
+                if(currNode.left != null){
+                    q.add(currNode.left);
+                }
+                if(currNode.right!= null){
+                    q.add(currNode.right);
+                }
+            }
+        }
+    }
     // Main method 
     public static void main(String args[]){
         int nodes[] = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
         BinaryTree bt = new BinaryTree();
         Node root =bt.BuildTree(nodes);
-        bt.PreOrder_Traversal(root);
+        bt.PreOrder_Traversal(root); // travelled by DFS
         System.out.println();
-        bt.InOrder_Traversal(root);
+        bt.InOrder_Traversal(root); // travelled by DFS
         System.out.println();
-        bt.PostOrder_Traversal(root);
+        bt.PostOrder_Traversal(root); // travelled by DFS
         System.out.println();
+        bt.LevelOrder_Traversal(root); // travelled by BFS 
     }
 
 }
