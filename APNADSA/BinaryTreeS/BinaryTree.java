@@ -123,6 +123,18 @@ public class BinaryTree {
             }
         }
     }
+
+    // Height of Tree (From Root Node to Leaf Node)
+
+    public int Height_Of_Tree(Node root){ // Time Complexity --> O(N)
+        if(root == null){
+            return 0;
+        }
+        int leftHeight = Height_Of_Tree(root.left);
+        int rightheigh = Height_Of_Tree(root.right);
+        int maxHeight = Math.max(leftHeight,rightheigh);
+        return maxHeight + 1;
+    }
     // Main method 
     public static void main(String args[]){
         int nodes[] = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
@@ -135,6 +147,8 @@ public class BinaryTree {
         bt.PostOrder_Traversal(root); // travelled by DFS
         System.out.println();
         bt.LevelOrder_Traversal(root); // travelled by BFS 
+
+        System.out.println(bt.Height_Of_Tree(root)); // height of tree
     }
 
 }
