@@ -49,8 +49,8 @@ public class BinaryTree {
             return;
         }
         System.out.print(root.data +" ");
-        PreOrder_Traversal(root.left);  // left node called recursively 
-        PreOrder_Traversal(root.right); // right node called recurively
+        PreOrder_Traversal(root.left);  // left sub tree called recursively 
+        PreOrder_Traversal(root.right); // right sub tree called recurively
        
     }
 
