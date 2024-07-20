@@ -1,4 +1,4 @@
-package APNADSA.Recursion;
+package Recursion.Recursion;
 
 public class LastOccurence {
     static int Last_Occurence(int arr[], int key, int i){

@@ -1,4 +1,4 @@
-package APNADSA.Recursion;
+package Recursion.Recursion;
 
 public class removeDuplicates {
     static void DR(String str,StringBuilder sb,int idx,boolean map[]){

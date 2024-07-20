@@ -1,4 +1,4 @@
-package APNADSA.Recursion;
+package Recursion.Recursion;
 
 public class FIndPrmutation {
     static void find_permutation(String str, String ans){

@@ -1,4 +1,4 @@
-package APNADSA.Recursion;
+package Recursion.Recursion;
 
 // print n to 1 numbers
 

@@ -1,4 +1,4 @@
-package APNADSA.Recursion;
+package Recursion.Recursion;
 /*
  * logic -> x * x^n-1 * x^n-2 *.....x^0
  */
