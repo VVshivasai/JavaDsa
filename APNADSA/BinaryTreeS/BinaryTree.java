@@ -87,11 +87,11 @@ public class BinaryTree {
         PostOrder_Traversal(root.right);
         System.out.print(root.data + " ");
     }
-    /* Level Order Traversal (BFS)
+    /* Level Order Traversal (BFS) (Interview Question) Time Complexity O(N), S.C -> O(N)
      * check the given  tree is null or not if it is then simply return.
      * Step 1 --> Create a queue data structure with type Node 
      * Step 2 --> run while loop till queue is empty
-     * Step 3 --> Take a node variable which is CurrNode
+     * Step 3 --> Take a node variable which is CurrNode , store the front value in it
      * Step 4 --> check  the currNode 
      *             --> if it is null then print next line 
      *             --> if it is not null then print data and add its next elements
