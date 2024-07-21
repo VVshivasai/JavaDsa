@@ -147,6 +147,17 @@ public class BinaryTree {
         int count = leftCount + rightCount +1;
         return count;
     }
+
+    // Sum of values in the Nodes 
+    public int SuM_OF_Data(Node root){
+        if(root == null) return 0;
+
+        int leftSum = SuM_OF_Data(root.left);
+        int rightSum = SuM_OF_Data(root.right);
+
+        return leftSum + rightSum + root.data;
+
+    }
     // Main method 
     public static void main(String args[]){
         int nodes[] = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
@@ -162,7 +173,9 @@ public class BinaryTree {
 
         System.out.println(bt.Height_Of_Tree(root)); // height of tree
 
-        System.out.println(bt.CountNodes_In_aTree(root));
+        System.out.println(bt.CountNodes_In_aTree(root)); // count the no of nodes in tree
+
+        System.out.println(bt.SuM_OF_Data(root)); // Sum of all values in the Tree
     }
 
 }
