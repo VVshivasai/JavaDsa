@@ -27,7 +27,7 @@ public class BinaryTree {
     // Build tree by using array
     public  Node BuildTree(int nodes[]){ // Time Complexity O(N)
         index++;
-        if(index >= nodes.length || nodes[index] == -1){
+        if(nodes[index] == -1){
             return null;
         }
         Node newNode = new Node(nodes[index]);
