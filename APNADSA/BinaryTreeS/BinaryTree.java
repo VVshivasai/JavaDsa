@@ -166,7 +166,7 @@ public class BinaryTree {
             this.hd = hd;
         }
     }
-    public void TopView(Node root){
+    public void TopView_BottomView(Node root){
         int min = 0;
         int max = 0;
         Queue<Info> q = new LinkedList<>();
@@ -182,9 +182,10 @@ public class BinaryTree {
                     q.add(null);
                 }
             }else{
-                if(!map.containsKey(curr.hd)){
+               // map.put(curr.hd,curr.node); // for Bottom view (remove if condition) upadate map with new values
+                if(!map.containsKey(curr.hd)){ 
                     map.put(curr.hd,curr.node);
-                }
+               }
                 if(curr.node.left != null){
                     q.add(new Info(curr.node.left,curr.hd-1));
                     min = Math.min(min,curr.hd-1);
@@ -229,7 +230,7 @@ public class BinaryTree {
 
         System.out.println(bt.SuM_OF_Data(root)); // Sum of all values in the Tree
 
-        bt.TopView(root); // top view 
+        bt.TopView_BottomView(root); // top view 
     }
 
 }
