@@ -1,7 +1,6 @@
 package APNADSA.LinkedList;
 
 
-
 public class LinkedList {
 
     public class Node{    // Node class is combination datatype and Reference(Address of its previous)

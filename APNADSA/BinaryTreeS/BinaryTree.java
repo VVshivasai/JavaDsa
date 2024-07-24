@@ -158,9 +158,61 @@ public class BinaryTree {
         return leftSum + rightSum + root.data;
 
     }
+    static class Info{
+        Node node;
+        int hd;
+        Info(Node node,int hd){
+            this.node = node;
+            this.hd = hd;
+        }
+    }
+    public void TopView(Node root){
+        int min = 0;
+        int max = 0;
+        Queue<Info> q = new LinkedList<>();
+        HashMap<Integer,Node> map = new HashMap<>();
+        q.add(new Info(root,0));
+        q.add(null);
+        while(!q.isEmpty()){
+            Info curr = q.remove();
+            if(curr == null){
+                if(q.isEmpty()){
+                    break;
+                }else{
+                    q.add(null);
+                }
+            }else{
+                if(!map.containsKey(curr.hd)){
+                    map.put(curr.hd,curr.node);
+                }
+                if(curr.node.left != null){
+                    q.add(new Info(curr.node.left,curr.hd-1));
+                    min = Math.min(min,curr.hd-1);
+                }
+                if(curr.node.right != null){
+                    q.add(new Info(curr.node.right,curr.hd+1));
+                    max = Math.max(max,curr.hd+1);
+                }
+            }
+
+        }
+        for(int i = min; i<=max;i++){
+            System.out.print(map.get(i).data+" ");
+        }
+        System.out.println();
+            
+    }
+
     // Main method 
     public static void main(String args[]){
-        int nodes[] = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
+        int nodes[] = {1,2,3,-1,-1,4,-1,-1,5,-1,-1};
+        /*
+         *           1 (root node)
+         *          / \
+         *         2   5
+         *        / \
+         *       3   4
+         */  
         BinaryTree bt = new BinaryTree();
         Node root =bt.BuildTree(nodes);
         bt.PreOrder_Traversal(root); // travelled by DFS
@@ -176,6 +228,8 @@ public class BinaryTree {
         System.out.println(bt.CountNodes_In_aTree(root)); // count the no of nodes in tree
 
         System.out.println(bt.SuM_OF_Data(root)); // Sum of all values in the Tree
+
+        bt.TopView(root); // top view 
     }
 
 }
